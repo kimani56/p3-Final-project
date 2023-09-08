@@ -1,6 +1,13 @@
 # Student Management System
 
 The Student Management System is a command-line application designed to help you manage student records, courses, and grades. It allows you to perform various actions such as adding, updating, and deleting student records, as well as adding courses and grades to students.
+## features
+1. Add a student
+2. Update a record of a student
+3. Delete the record of a student 
+4. One is also able to retrieve a students records
+5. add course and grade[optional]
+
 
 ## Table of Contents
 
