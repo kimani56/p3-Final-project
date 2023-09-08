@@ -1,5 +1,3 @@
-# student_management/models.py
-
 from sqlalchemy import Table, Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import sessionmaker, relationship
 from sqlalchemy.ext.declarative import declarative_base

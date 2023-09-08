@@ -1,7 +1,7 @@
 # student_management/cli.py
 
 import click
-from models import Session, Student, Course, Grade  # Import your models here
+from models import Session, Student, Course, Grade  
 from faker import Faker
 
 fake = Faker()
@@ -13,7 +13,7 @@ def cli():
 @cli.command()
 @click.option('--name', prompt='Student name', help='Name of the student')
 def add_student(name):
-    session = Session()  # Use your Session object from models.py
+    session = Session()  
 
     student = Student(name=name)
     session.add(student)
@@ -26,7 +26,7 @@ def add_student(name):
 @click.option('--student-id', type=int, prompt='Student ID', help='ID of the student to update')
 @click.option('--new-name', prompt='New name', help='New name for the student')
 def update_student(student_id, new_name):
-    session = Session()  # Use your Session object from models.py
+    session = Session()  
     student = session.query(Student).filter(Student.id == student_id).first()
 
     if student:
@@ -41,7 +41,7 @@ def update_student(student_id, new_name):
 @cli.command()
 @click.option('--student-id', type=int, prompt='Student ID', help='ID of the student to delete')
 def delete_student(student_id):
-    session = Session()  # Use your Session object from models.py
+    session = Session()  
     student = session.query(Student).filter(Student.id == student_id).first()
 
     if student:
@@ -56,7 +56,7 @@ def delete_student(student_id):
 @cli.command()
 @click.option('--student-id', type=int, prompt='Student ID', help='ID of the student to retrieve records for')
 def retrieve_student_records(student_id):
-    session = Session()  # Use your Session object from models.py
+    session = Session()  
     student = session.query(Student).filter(Student.id == student_id).first()
 
     if student:
@@ -71,7 +71,7 @@ def retrieve_student_records(student_id):
     else:
         click.echo(f"Student with ID {student_id} not found.")
 
-# ... (other commands)
+
 
 if __name__ == '__main__':
     cli()
