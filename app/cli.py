@@ -72,21 +72,28 @@ def retrieve_student_records(student_id):
         click.echo(f"Student with ID {student_id} not found.")
 
 @cli.command()
-@click.option('--student-id', type=int, prompt='Student ID', help='ID of the student to add a course and grade')
+@click.option('--student-id', type=int, prompt='Student ID', help='ID of the student')
 @click.option('--course-name', prompt='Course name', help='Name of the course')
-@click.option('--grade-value', type=float, prompt='Grade value', help='Grade value')
+@click.option('--grade-value', type=float, prompt='Grade value', help='Value of the grade')
 def add_course_and_grade(student_id, course_name, grade_value):
     session = Session()
+
     student = session.query(Student).filter(Student.id == student_id).first()
 
     if student:
+        
         course = Course(name=course_name, student=student)
-        grade = Grade(value=grade_value, course=course)
+
+        
+        grade = Grade(value=grade_value)
+
+        
+        course.grades.append(grade)
+
         session.add(course)
-        session.add(grade)
         session.commit()
         session.close()
-        click.echo(f'Course "{course_name}" and grade "{grade_value}" added to Student ID {student_id} successfully.')
+        click.echo(f'Course "{course_name}" with grade {grade_value} added successfully for Student ID {student_id}.')
     else:
         session.close()
         click.echo(f"Student with ID {student_id} not found.")
