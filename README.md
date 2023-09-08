@@ -10,6 +10,7 @@ The Student Management System is a command-line application designed to help you
 - [Usage](#usage)
   - [Command-Line Interface (CLI)](#command-line-interface-cli)
   - [Available Commands](#available-commands)
+-- [Technologies used](#technologies-used)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -63,6 +64,14 @@ python cli.py
 - Adding a Course and Grade
  To add a course and grade to a student, use the following command:
  . python cli.py add_course_and_grade --student-id 1 --course-name "Math" --grade-value 85.5
+
+## Technologies used
+- [Python3](https://docs.python.org/3.10/)
+- [Pytest](https://docs.pytest.org/en/latest/contents.html)
+- [SQLAlchemy](https://docs.sqlalchemy.org/en/20/)
+- [Alembic](https://alembic.sqlalchemy.org/en/latest/)
+- [Faker](https://faker.readthedocs.io/en/master/)
+
 
 ### Contributing
 Contributions are welcome! If you would like to contribute to this project, please follow these steps:
